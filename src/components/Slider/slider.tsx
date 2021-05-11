@@ -64,7 +64,7 @@ margin-top: 10px;
 export default class WorkspaceSlider extends Component {
   render() {
     const settings = {
-      dots: true,
+      dots: false,
       infinite: true,
       speed: 500,
       slidesToShow: 3,
