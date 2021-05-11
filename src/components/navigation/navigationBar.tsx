@@ -53,7 +53,7 @@ const NavigationBar : FC = props =>{
     const [wrappedRef, dropdownOpen, toogleDropdown] = useDropdown();
     return(
             <TopBar>
-                <Link to="/"><Logo/></Link>
+                <Link to="/mainpage"><Logo/></Link>
                     <div ref={wrappedRef}>
                         <div onClick={toogleDropdown}>
                             <Home/>

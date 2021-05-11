@@ -1,16 +1,20 @@
 import {FC} from "react";
+import { useSelector } from "react-redux";
 import styled from 'styled-components';
+import { IState } from "../reducers";
+import { IPhotoReducer } from "../reducers/photoreducers";
 
 const LatestPublicationsBox = styled.div`
 position: relative;
-width: 1200px;
-height: 220px;
+width: 850px;
+height: 270px;
+padding: 20px;
 `
 
 const LatestPublicationsList = styled.div`
 background-color: white;
-width: 400px;
-height: 220px;
+width: 560px;
+height: 270px;
 border-radius: 5%;
 box-shadow:4px 4px 8px 1px #8e8e8e;
 border-radius:4px;
@@ -19,10 +23,14 @@ float: left;
 `
 
 const PhotoBox = styled.div`
-background-color: green;
-width: 220px;
-height: 220px;
+width: 270px;
+height: 270px;
 border-radius: 5%;
+float: left;
+`
+const PhotoBoxImg = styled.img`
+width: 272px;
+height: 270px;
 box-shadow:4px 4px 8px 1px #8e8e8e;
 border-radius:4px;
 float: left;
@@ -49,11 +57,6 @@ margin-left: 10px;
 float: left;
 margin-right: 10px;
 `
-
-MiniPhoto.defaultProps={
-    src:'../media/signingsample.jpg',
-};
-
 const PublicationsText = styled.text`
 font-size: 16;
 `
@@ -66,15 +69,20 @@ float: left;
 `
 
 const LatestPublications: FC = () =>{
+    const { photoList } = useSelector<IState, IPhotoReducer>(globalState => ({
+        ...globalState.photos
+    }));
     return(
         <LatestPublicationsBox>
-            <PhotoBox/>
+            <PhotoBox>
+                <PhotoBoxImg src={photoList[Math.floor(Math.random() * photoList.length)]?.url}/>
+            </PhotoBox>
             <LatestPublicationsList>
                 <TitleBox>
                     <LatestPubText>Latest Publications</LatestPubText>
                 </TitleBox>
                 <PublicationBox>
-                    <MiniPhoto/>
+                    <MiniPhoto src={photoList[Math.floor(Math.random() * photoList.length)]?.url} />
                     <PublicationsTextBox>
                         <PublicationsText>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </PublicationsText>
                     </PublicationsTextBox>
@@ -83,7 +91,7 @@ const LatestPublications: FC = () =>{
 
 
                 <PublicationBox>
-                    <MiniPhoto/>
+                    <MiniPhoto src={photoList[Math.floor(Math.random() * photoList.length)]?.url} />
                     <PublicationsTextBox>
                         <PublicationsText>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </PublicationsText>
                     </PublicationsTextBox>
@@ -92,7 +100,7 @@ const LatestPublications: FC = () =>{
 
 
                 <PublicationBox>
-                    <MiniPhoto/>
+                    <MiniPhoto src={photoList[Math.floor(Math.random() * photoList.length)]?.url} />
                     <PublicationsTextBox>
                         <PublicationsText>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </PublicationsText>
                     </PublicationsTextBox>

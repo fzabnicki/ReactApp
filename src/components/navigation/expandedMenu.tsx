@@ -72,7 +72,7 @@ export const ExpandedMenu: FC = () =>{
 
                 <MenuItem>
                 {'Home'.toLowerCase().includes(inputText.toLowerCase()) &&
-                    <Link to='/' style={{textDecoration: 'none', color: Colors.black}} >
+                    <Link to='/mainpage' style={{textDecoration: 'none', color: Colors.black}} >
                             <img src="../media/icons/house2.png" alt=""/> Home
                     </Link>}
                 </MenuItem>

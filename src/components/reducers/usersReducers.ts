@@ -15,7 +15,7 @@ export default (state = defaultState(), action: any) =>{
             const payload: actionTypes.IUserTypes['GET_USERS'] = action;
             return{
                 ...state,
-                users:payload.usersList
+                usersList:payload.usersList
             }
         }
         default:{

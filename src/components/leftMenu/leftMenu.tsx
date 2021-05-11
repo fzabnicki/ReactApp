@@ -1,18 +1,19 @@
-import  { FC } from 'React';
+import  { FC } from 'react';
 import styled from 'styled-components';
-import {
-    Link
-}from "react-router-dom";
+import { Link }from "react-router-dom";
 import { useSelector } from 'react-redux';
 import { IState } from '../reducers'
 import { IUsersReducer } from '../reducers/usersReducers';
 import { Colors } from '../../styledHelpers/Colors';
+import { IPhotoReducer } from '../reducers/photoreducers';
 
 const LeftPanel = styled.div`
     height: 500px;
     width: 250px;
     background-color:${Colors.lightgray};
     display: inline-block;
+    margin-left:5%;
+    margin-right:5%;
 `;
 
 const Box = styled.div`
@@ -23,16 +24,22 @@ margin-top:20px;
 background-color: ${Colors.white};
 border-radius: 5%;
 box-shadow:4px 4px 8px 1px #8e8e8e;
-padding-top:15px;
 border-radius:5px;
+padding-top:15px;
 `;
 
-const ProfilePicture = styled.div`
+const ProfilePictureDiv = styled.div`
 display: block;
 margin: auto;
 padding-top: 10px;
 text-align: center;
 `;
+
+const ProfilePicture = styled.img`
+border-radius: 50%;
+width: 50px;
+height: 50px;
+`
 
 const ProfileName = styled.div`
 text-align: center;
@@ -68,31 +75,22 @@ height: 35px;
 padding-left: 20px;
 `;
 
-const ProfilePic = styled.img`
-border-radius: 50%;
-width: 50px;
-height: 50px;
-`;
-
-ProfilePic.defaultProps={
-    src:'../media/samplePhoto.jpg',
-};
-
-
-const LeftMenu: FC = () => {
+const LeftMenu: FC = (photolist, userlist) => {
     const { usersList } = useSelector<IState, IUsersReducer>(globalState => ({
         ...globalState.users
+    }));
+    const { photoList } = useSelector<IState, IPhotoReducer>(globalState => ({
+        ...globalState.photos
     }));
     return(
         <LeftPanel>
             
             <Box>
-                <ProfilePicture>
-                    <Link to="/profile"><ProfilePic/></Link>
-                </ProfilePicture>
+                <ProfilePictureDiv>
+                        <Link to="/profile"><ProfilePicture src={photoList[1]?.url}/></Link>
+                </ProfilePictureDiv>
                 <ProfileName>
-                    {console.log(usersList)}
-                    Userlist:{usersList[0]?.name}
+                    {usersList[0]?.name}
                 </ProfileName>
                 <Line></Line>
                 <YourNetwork>
