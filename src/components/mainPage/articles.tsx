@@ -18,7 +18,7 @@ width: 200px;
 float: left;
 `
 const TopBarDiv = styled.div`
-height: 50px;
+height: 40px;
 `;
 
 const FilterInput = styled.div`
@@ -49,6 +49,7 @@ background-color: white;
 border-radius: 5%;
 box-shadow:4px 4px 8px 1px #8e8e8e;
 border-radius:3px;
+margin-bottom: 10px;
 `;
 
 const ArticleTitle = styled.div`
@@ -121,6 +122,173 @@ return(
                     <img src="./media/icons/search.png" style={{marginLeft:" -22px", position: "absolute"}} alt=""></img>
                 </FilterInput>
             </TopBarDiv>
+
+
+            <ArticleBox>
+                <ArticleTitle>
+                    {postList[1].title.charAt(0).toUpperCase() + postList[1].title.slice(1)}
+                </ArticleTitle>
+                <ArticleContent>
+                    {postList[1].body}
+                </ArticleContent>
+                <ArticleFooter>
+                    <ArticleFooterCompanyThumbnail src={photoList[5].url}/>
+                    <ArticleFooterText>
+                        Subsid. corp.
+                    </ArticleFooterText>
+                    <DotDiv>•</DotDiv>
+                    <ArticleFooterThumbnail src="./media/icons/entities.png"/>
+                    <ArticleFooterText>
+                        Corporate
+                    </ArticleFooterText>
+                    <DotDiv>•</DotDiv>
+                    <ArticleFooterText>
+                        Updated 3 days ago by {usersList[1].name}
+                    </ArticleFooterText>
+                </ArticleFooter>
+            </ArticleBox>
+
+            <ArticleBox>
+                <ArticleTitle>
+                    {postList[1].title.charAt(0).toUpperCase() + postList[1].title.slice(1)}
+                </ArticleTitle>
+                <ArticleContent>
+                    {postList[1].body}
+                </ArticleContent>
+                <ArticleFooter>
+                    <ArticleFooterCompanyThumbnail src={photoList[5].url}/>
+                    <ArticleFooterText>
+                        Subsid. corp.
+                    </ArticleFooterText>
+                    <DotDiv>•</DotDiv>
+                    <ArticleFooterThumbnail src="./media/icons/entities.png"/>
+                    <ArticleFooterText>
+                        Corporate
+                    </ArticleFooterText>
+                    <DotDiv>•</DotDiv>
+                    <ArticleFooterText>
+                        Updated 3 days ago by {usersList[1].name}
+                    </ArticleFooterText>
+                </ArticleFooter>
+            </ArticleBox>
+            <ArticleBox>
+                <ArticleTitle>
+                    {postList[1].title.charAt(0).toUpperCase() + postList[1].title.slice(1)}
+                </ArticleTitle>
+                <ArticleContent>
+                    {postList[1].body}
+                </ArticleContent>
+                <ArticleFooter>
+                    <ArticleFooterCompanyThumbnail src={photoList[5].url}/>
+                    <ArticleFooterText>
+                        Subsid. corp.
+                    </ArticleFooterText>
+                    <DotDiv>•</DotDiv>
+                    <ArticleFooterThumbnail src="./media/icons/entities.png"/>
+                    <ArticleFooterText>
+                        Corporate
+                    </ArticleFooterText>
+                    <DotDiv>•</DotDiv>
+                    <ArticleFooterText>
+                        Updated 3 days ago by {usersList[1].name}
+                    </ArticleFooterText>
+                </ArticleFooter>
+            </ArticleBox>
+
+            <ArticleBox>
+                <ArticleTitle>
+                    {postList[1].title.charAt(0).toUpperCase() + postList[1].title.slice(1)}
+                </ArticleTitle>
+                <ArticleContent>
+                    {postList[1].body}
+                </ArticleContent>
+                <ArticleFooter>
+                    <ArticleFooterCompanyThumbnail src={photoList[5].url}/>
+                    <ArticleFooterText>
+                        Subsid. corp.
+                    </ArticleFooterText>
+                    <DotDiv>•</DotDiv>
+                    <ArticleFooterThumbnail src="./media/icons/entities.png"/>
+                    <ArticleFooterText>
+                        Corporate
+                    </ArticleFooterText>
+                    <DotDiv>•</DotDiv>
+                    <ArticleFooterText>
+                        Updated 3 days ago by {usersList[1].name}
+                    </ArticleFooterText>
+                </ArticleFooter>
+            </ArticleBox>
+            <ArticleBox>
+                <ArticleTitle>
+                    {postList[1].title.charAt(0).toUpperCase() + postList[1].title.slice(1)}
+                </ArticleTitle>
+                <ArticleContent>
+                    {postList[1].body}
+                </ArticleContent>
+                <ArticleFooter>
+                    <ArticleFooterCompanyThumbnail src={photoList[5].url}/>
+                    <ArticleFooterText>
+                        Subsid. corp.
+                    </ArticleFooterText>
+                    <DotDiv>•</DotDiv>
+                    <ArticleFooterThumbnail src="./media/icons/entities.png"/>
+                    <ArticleFooterText>
+                        Corporate
+                    </ArticleFooterText>
+                    <DotDiv>•</DotDiv>
+                    <ArticleFooterText>
+                        Updated 3 days ago by {usersList[1].name}
+                    </ArticleFooterText>
+                </ArticleFooter>
+            </ArticleBox>
+
+            <ArticleBox>
+                <ArticleTitle>
+                    {postList[1].title.charAt(0).toUpperCase() + postList[1].title.slice(1)}
+                </ArticleTitle>
+                <ArticleContent>
+                    {postList[1].body}
+                </ArticleContent>
+                <ArticleFooter>
+                    <ArticleFooterCompanyThumbnail src={photoList[5].url}/>
+                    <ArticleFooterText>
+                        Subsid. corp.
+                    </ArticleFooterText>
+                    <DotDiv>•</DotDiv>
+                    <ArticleFooterThumbnail src="./media/icons/entities.png"/>
+                    <ArticleFooterText>
+                        Corporate
+                    </ArticleFooterText>
+                    <DotDiv>•</DotDiv>
+                    <ArticleFooterText>
+                        Updated 3 days ago by {usersList[1].name}
+                    </ArticleFooterText>
+                </ArticleFooter>
+            </ArticleBox>
+            <ArticleBox>
+                <ArticleTitle>
+                    {postList[1].title.charAt(0).toUpperCase() + postList[1].title.slice(1)}
+                </ArticleTitle>
+                <ArticleContent>
+                    {postList[1].body}
+                </ArticleContent>
+                <ArticleFooter>
+                    <ArticleFooterCompanyThumbnail src={photoList[5].url}/>
+                    <ArticleFooterText>
+                        Subsid. corp.
+                    </ArticleFooterText>
+                    <DotDiv>•</DotDiv>
+                    <ArticleFooterThumbnail src="./media/icons/entities.png"/>
+                    <ArticleFooterText>
+                        Corporate
+                    </ArticleFooterText>
+                    <DotDiv>•</DotDiv>
+                    <ArticleFooterText>
+                        Updated 3 days ago by {usersList[1].name}
+                    </ArticleFooterText>
+                </ArticleFooter>
+            </ArticleBox>
+
             <ArticleBox>
                 <ArticleTitle>
                     {postList[1].title.charAt(0).toUpperCase() + postList[1].title.slice(1)}
