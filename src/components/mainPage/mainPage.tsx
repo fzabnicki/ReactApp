@@ -18,19 +18,19 @@ import {
 import { useDispatch } from 'react-redux';
 import { getUsers } from '../../actions/usersActions';
 import { getPhotos } from '../../actions/photosActions';
+import { getPosts } from '../../actions/postsActions';
 import LatestPublications from './latestPublications';
 import Slider from '../Slider/slider';
 import Articles from './articles';
 
 type GetUsers = ReturnType<typeof getUsers>
 type GetPhotos = ReturnType<typeof getPhotos>
+type GetPosts = ReturnType<typeof getPosts>
 
 const Content = styled.div`
 width: 870px;
-height: 100%;
 padding: 20px;
 display: inline-block;
-position: absolute;
 `
 
 const MainPage: FC = () => {
@@ -38,6 +38,7 @@ const MainPage: FC = () => {
     useEffect(() => {
         dispatch<GetUsers>(getUsers());
         dispatch<GetPhotos>(getPhotos());
+        dispatch<GetPosts>(getPosts());
     },);
     return (
         <Router>

@@ -8,12 +8,12 @@ import { Colors } from '../../styledHelpers/Colors';
 import { IPhotoReducer } from '../reducers/photoreducers';
 
 const LeftPanel = styled.div`
-    height: 500px;
     width: 250px;
     background-color:${Colors.lightgray};
-    display: inline-block;
+    display:inline-block;
     margin-left:5%;
     margin-right:5%;
+    vertical-align: top;
 `;
 
 const Box = styled.div`
@@ -84,7 +84,6 @@ const LeftMenu: FC = (photolist, userlist) => {
     }));
     return(
         <LeftPanel>
-            
             <Box>
                 <ProfilePictureDiv>
                         <Link to="/profile"><ProfilePicture src={photoList[1]?.url}/></Link>

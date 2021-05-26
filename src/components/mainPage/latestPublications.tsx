@@ -3,6 +3,10 @@ import { useSelector } from "react-redux";
 import styled from 'styled-components';
 import { IState } from "../reducers";
 import { IPhotoReducer } from "../reducers/photoreducers";
+import { IUsersReducer } from "../reducers/usersReducers";
+
+// Do zrobienia API z posts
+
 
 const LatestPublicationsBox = styled.div`
 position: relative;
@@ -67,11 +71,28 @@ const DateText = styled.text`
 font-size: 10px;
 float: left;
 `
+const Writer = styled.text`
+font-size: 10px;
+float: left;
+margin-left: 3px;
+`
+
+const WriterPhoto = styled.img`
+width: 10px;
+float: left;
+margin-left: 20px;
+height: 10px;
+border-radius: 50%;
+` 
 
 const LatestPublications: FC = () =>{
     const { photoList } = useSelector<IState, IPhotoReducer>(globalState => ({
         ...globalState.photos
     }));
+    const { usersList } = useSelector<IState, IUsersReducer>(globalState => ({
+        ...globalState.users
+    }));
+    const Current = usersList[Math.floor(Math.random() * usersList.length)]?.id;
     return(
         <LatestPublicationsBox>
             <PhotoBox>
@@ -81,30 +102,48 @@ const LatestPublications: FC = () =>{
                 <TitleBox>
                     <LatestPubText>Latest Publications</LatestPubText>
                 </TitleBox>
+
+
                 <PublicationBox>
-                    <MiniPhoto src={photoList[Math.floor(Math.random() * photoList.length)]?.url} />
+                    <MiniPhoto src={photoList[Current]?.url} />
                     <PublicationsTextBox>
                         <PublicationsText>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </PublicationsText>
                     </PublicationsTextBox>
                         <DateText>7 jan, 2020</DateText>
+                        <WriterPhoto src={photoList[Current]?.url}/>
+                        <Writer>{usersList[Current]?.name}</Writer>
                 </PublicationBox>
 
 
                 <PublicationBox>
-                    <MiniPhoto src={photoList[Math.floor(Math.random() * photoList.length)]?.url} />
+                    <MiniPhoto src={photoList[Current]?.url} />
                     <PublicationsTextBox>
                         <PublicationsText>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </PublicationsText>
                     </PublicationsTextBox>
                         <DateText>7 jan, 2020</DateText>
+                        <WriterPhoto src={photoList[Current]?.url}/>
+                        <Writer>{usersList[Current]?.name}</Writer>
                 </PublicationBox>
 
 
                 <PublicationBox>
-                    <MiniPhoto src={photoList[Math.floor(Math.random() * photoList.length)]?.url} />
+                    <MiniPhoto src={photoList[Current]?.url} />
                     <PublicationsTextBox>
                         <PublicationsText>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </PublicationsText>
                     </PublicationsTextBox>
                         <DateText>7 jan, 2020</DateText>
+                        <WriterPhoto src={photoList[Current]?.url}/>
+                        <Writer>{usersList[Current]?.name}</Writer>
+                </PublicationBox>
+
+                <PublicationBox>
+                    <MiniPhoto src={photoList[Current]?.url} />
+                    <PublicationsTextBox>
+                        <PublicationsText>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </PublicationsText>
+                    </PublicationsTextBox>
+                        <DateText>7 jan, 2020</DateText>
+                        <WriterPhoto src={photoList[Current]?.url}/>
+                        <Writer>{usersList[Current]?.name}</Writer>
                 </PublicationBox>
             </LatestPublicationsList>
         </LatestPublicationsBox>

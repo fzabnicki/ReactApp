@@ -69,7 +69,6 @@ export default class WorkspaceSlider extends Component {
       speed: 500,
       slidesToShow: 3,
       slidesToScroll: 3,
-      
     };
     return (
       <div>

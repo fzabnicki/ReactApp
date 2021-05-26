@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import MainPage from '../components/mainPage/mainPage';
 import { Wrapper } from '../styledHelpers/Components';
 
