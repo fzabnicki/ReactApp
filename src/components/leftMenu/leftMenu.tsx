@@ -75,7 +75,7 @@ height: 35px;
 padding-left: 20px;
 `;
 
-const LeftMenu: FC = (photolist, userlist) => {
+const LeftMenu: FC = () => {
     const { usersList } = useSelector<IState, IUsersReducer>(globalState => ({
         ...globalState.users
     }));
