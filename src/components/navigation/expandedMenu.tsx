@@ -2,9 +2,12 @@ import React, { FC, ChangeEvent, useState } from 'react';
 import styled from 'styled-components';
 import { Colors } from '../../styledHelpers/Colors';
 import {fontSize} from '../../styledHelpers/FontSizes';
-import {
-    Link
-  } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useSelector } from 'react-redux';
+import { IState } from '../reducers';
+import { IUsersReducer } from '../reducers/usersReducers';
+import { IPhotoReducer } from '../reducers/photoreducers';
+
 
 const ExpandedMenuWraper = styled.div`
 background-color: ${Colors.white};
@@ -45,12 +48,30 @@ margin-bottom: 4px;
 color: #909090;
 `;
 
-
 const SearchInputBox = styled.div`
 width: auto;
 margin-right: 10px;
 margin-top: 5px;
 margin-left: 5px;
+`;
+
+const ProfileDiv = styled.div`
+
+`;
+
+const ProfilePic = styled.img`
+border-radius: 50%;
+width: 25px;
+height: 25px;
+float: left;
+margin-right: 8px;
+`;
+const ProfileName = styled.div`
+font-size: 16px;
+`;
+const ProfileLinkText=styled.div`
+color: darkblue;
+font-size: 14px;
 `;
 
 export const ExpandedMenu: FC = () =>{
@@ -61,6 +82,12 @@ export const ExpandedMenu: FC = () =>{
         const text = e.target.value;
         setInputText(text)
     }
+    const { usersList } = useSelector<IState, IUsersReducer>(globalState => ({
+        ...globalState.users
+    }));
+    const { photoList } = useSelector<IState, IPhotoReducer>(globalState => ({
+        ...globalState.photos
+    }));
     return(
         <ExpandedMenuWraper>
             <SectionsWraper>
@@ -145,9 +172,13 @@ export const ExpandedMenu: FC = () =>{
                 <Line />
                 <CategoryName>Account</CategoryName>
                 <MenuItem>
-
-                    <img src="./media/icons/pic.png" alt=""/>
-                    Username
+                <ProfileDiv>
+                            <ProfilePic src={photoList[1]?.url}/>
+                            <ProfileName>{usersList[1]?.name}</ProfileName>
+                        <Link to='/profile' style={{textDecoration: 'none'}}>
+                            <ProfileLinkText>See Profile</ProfileLinkText>
+                        </Link>
+                    </ProfileDiv>
                 </MenuItem>
 
                 <MenuItem>
