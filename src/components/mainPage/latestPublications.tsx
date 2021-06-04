@@ -5,9 +5,6 @@ import { IState } from "../reducers";
 import { IPhotoReducer } from "../reducers/photoreducers";
 import { IUsersReducer } from "../reducers/usersReducers";
 
-// Do zrobienia API z posts
-
-
 const LatestPublicationsBox = styled.div`
 position: relative;
 width: 850px;

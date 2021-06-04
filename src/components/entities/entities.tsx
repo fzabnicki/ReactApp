@@ -1,4 +1,4 @@
-import {FC} from "react";
+import { FC, useState} from "react";
 import styled from 'styled-components';
 
 const EntitiesComponent = styled.div`
@@ -126,6 +126,7 @@ height:15px;
 margin-right: 5px;
 `;
 
+
 const Entities: FC = () =>{
     const copy = () =>{
         const el = document.createElement('input');
@@ -136,8 +137,19 @@ const Entities: FC = () =>{
         document.body.removeChild(el);
         alert("Skopiowano adres strony.")
     }
+    var [fullscreen, setFullScreen] = useState(false);
+    const MakeFullScreen = () =>{
+        setFullScreen((prev) => !prev)
+        console.log(fullscreen)
+    }
     return(
-        <EntitiesComponent>
+        <EntitiesComponent style=   {{  width:`${fullscreen ? 'auto': '100%'}`,
+                                        height:`${fullscreen ? 'auto': '100%'}`,
+                                        left:`${fullscreen ? 'auto': '0'}`,
+                                        top:`${fullscreen ? 'auto': '0' }`,
+                                        position:`${fullscreen ? 'absolute': '' }` as 'absolute'
+                                    //POSITION DODAĆ!!!
+                                    }}> 
             <EntitiesUpperTopBar>
                 <EntitiesTitle>Entities</EntitiesTitle>
                 <Gear src="./media/icons/gear.png"/>
@@ -153,7 +165,7 @@ const Entities: FC = () =>{
                 <SortButton>Sort</SortButton>
                 <FiltersButton>Filters</FiltersButton>
                 <Divider>|</Divider>
-                <FullscreenButton src="./media/icons/fullscreen.png" />
+                <FullscreenButton onClick={MakeFullScreen} src="./media/icons/fullscreen.png" />
                 <Divider>|</Divider>
                 <ShareButtonDiv onClick={copy}>
                     <ShareButton src="./media/icons/share.png"/>Share

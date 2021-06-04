@@ -5,7 +5,6 @@ import { IState } from "../reducers";
 import { IUsersReducer } from '../reducers/usersReducers';
 import { IPhotoReducer } from '../reducers/photoreducers';
 import { Colors } from "../../styledHelpers/Colors";
-import { Formik } from "formik";
 
 const ProfileBox = styled.div`
 width: 850px;
