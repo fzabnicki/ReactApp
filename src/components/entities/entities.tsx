@@ -126,8 +126,27 @@ height:15px;
 margin-right: 5px;
 `;
 
+const PuzzleSection = styled.div`
 
-const Entities: FC = () =>{
+`;
+
+const SinglePuzzleDiv = styled.div`
+
+`;
+
+const PuzzleImg = styled.div`
+
+`;
+
+const PuzzleTitle = styled.div`
+
+`;
+
+const PuzzleFooter = styled.div`
+
+`;
+
+const Entities: FC = (props) =>{
     const copy = () =>{
         const el = document.createElement('input');
         el.value = window.location.href;
@@ -140,15 +159,13 @@ const Entities: FC = () =>{
     var [fullscreen, setFullScreen] = useState(false);
     const MakeFullScreen = () =>{
         setFullScreen((prev) => !prev)
-        console.log(fullscreen)
     }
     return(
-        <EntitiesComponent style=   {{  width:`${fullscreen ? 'auto': '100%'}`,
-                                        height:`${fullscreen ? 'auto': '100%'}`,
-                                        left:`${fullscreen ? 'auto': '0'}`,
-                                        top:`${fullscreen ? 'auto': '0' }`,
-                                        position:`${fullscreen ? 'absolute': '' }` as 'absolute'
-                                    //POSITION DODAĆ!!!
+        <EntitiesComponent style=   {{  width:`${fullscreen ? '100%': 'auto'}`,
+                                        height:`${fullscreen ? '100%': 'auto'}`,
+                                        left:`${fullscreen ? '0': 'auto'}`,
+                                        top:`${fullscreen ? '0': 'auto' }`,
+                                        position:`${fullscreen ? 'absolute' : '' }` as 'fixed'
                                     }}> 
             <EntitiesUpperTopBar>
                 <EntitiesTitle>Entities</EntitiesTitle>
@@ -179,7 +196,9 @@ const Entities: FC = () =>{
                     <SearchInputField type="text" placeholder="Search..."/>
                 </SearchInputDiv>
             </EntitiesTopBar>
-            
+            <PuzzleSection>
+
+            </PuzzleSection>
         </EntitiesComponent>
     )
 }
