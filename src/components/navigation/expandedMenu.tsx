@@ -77,7 +77,6 @@ font-size: 14px;
 export const ExpandedMenu: FC = () =>{
 
     const [inputText, setInputText] = useState<string>('');
-
     const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
         const text = e.target.value;
         setInputText(text)
@@ -92,7 +91,7 @@ export const ExpandedMenu: FC = () =>{
         <ExpandedMenuWraper>
             <SectionsWraper>
                 <SearchInputBox>
-                <input className="searchInput" style={{width:"160px"}} type="text" value = {inputText} onChange={inputHandler} placeholder="Search..."/>
+                <input style={{width:"160px"}} type="text" value = {inputText} onChange={inputHandler} placeholder="Search..."/>
                 </SearchInputBox>
                 
                 <CategoryName>Platrorm</CategoryName>

@@ -1,9 +1,11 @@
-import { FC, useState} from "react";
+import { ChangeEvent, FC, useState} from "react";
 import { useSelector } from "react-redux";
 import styled from 'styled-components';
 import {SingleEntities} from '../entities/singleEntities';
 import { IState } from "../reducers";
 import { IPhotoReducer } from "../reducers/photoreducers";
+import useDropdown from 'react-dropdown-hook';
+import {Filter} from '../entities/filter';
 
 const EntitiesComponent = styled.div`
 background-color: white;
@@ -38,7 +40,16 @@ font-size: 14px;
 
 const EntitiesLayout = styled.div`
 float: right;
-padding: 15px;
+padding: 5px;
+margin: 10px;
+width: 60px;
+text-align: center;
+border: 2px solid darkblue;
+border-radius: 5px;
+user-select: none;
+&:hover{
+background-color: lightgray;
+}
 `;
 
 const AllButton = styled.div`
@@ -170,6 +181,7 @@ const Entities: FC = (props) =>{
     const MakeList = () =>{
         setListLayout((prev) => !prev)
     }
+    const [wrapperRef, dropdownOpen, toggleDropdown, closeDropdown] = useDropdown();
     return(
         <EntitiesComponent style=   {{  width:`${fullscreen ? '100%': 'auto'}`,
                                         height:`${fullscreen ? '100%': 'auto'}`,
@@ -180,7 +192,7 @@ const Entities: FC = (props) =>{
             <EntitiesUpperTopBar>
                 <EntitiesTitle>Entities</EntitiesTitle>
                 <Gear src="./media/icons/gear.png"/>
-                <EntitiesLayout onClick={MakeList}>Mosaic</EntitiesLayout>
+                <EntitiesLayout onClick={MakeList} >{`${listLayout ? "Mosaic" : "List"}`}</EntitiesLayout>
             </EntitiesUpperTopBar>
             <EntitiesTopBar>
                 <AllButton>
@@ -190,7 +202,12 @@ const Entities: FC = (props) =>{
                 <DotsButton>•••</DotsButton>
                 <Divider>|</Divider>
                 <SortButton>Sort</SortButton>
-                <FiltersButton>Filters</FiltersButton>
+                <FiltersButton onClick={toggleDropdown}>
+                    Filters
+                    {dropdownOpen &&
+                        <Filter />
+                        }
+                </FiltersButton>
                 <Divider>|</Divider>
                 <FullscreenButton onClick={MakeFullScreen} src="./media/icons/fullscreen.png" />
                 <Divider>|</Divider>
@@ -203,7 +220,7 @@ const Entities: FC = (props) =>{
                 </FollowDiv>
                 <DividerRight>|</DividerRight>
                 <SearchInputDiv>
-                    <SearchInputField type="text" placeholder="Search..."/>
+                    <SearchInputField type="text" placeholder="Search..." />
                 </SearchInputDiv>
             </EntitiesTopBar>
             <PuzzleSection style={{minHeight: `${fullscreen ? (puzzleInfo.length/6)*87 : (puzzleInfo.length/3)*87}px`}}>
