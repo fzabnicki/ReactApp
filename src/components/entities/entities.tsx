@@ -1,5 +1,9 @@
 import { FC, useState} from "react";
+import { useSelector } from "react-redux";
 import styled from 'styled-components';
+import {SingleEntities} from '../entities/singleEntities';
+import { IState } from "../reducers";
+import { IPhotoReducer } from "../reducers/photoreducers";
 
 const EntitiesComponent = styled.div`
 background-color: white;
@@ -127,26 +131,16 @@ margin-right: 5px;
 `;
 
 const PuzzleSection = styled.div`
-
+padding-left: 15px;
+padding-bottom: 15px;
 `;
 
-const SinglePuzzleDiv = styled.div`
 
-`;
-
-const PuzzleImg = styled.div`
-
-`;
-
-const PuzzleTitle = styled.div`
-
-`;
-
-const PuzzleFooter = styled.div`
-
-`;
 
 const Entities: FC = (props) =>{
+    const { photoList } = useSelector<IState, IPhotoReducer>(globalState => ({
+        ...globalState.photos
+    }));
     const copy = () =>{
         const el = document.createElement('input');
         el.value = window.location.href;
@@ -160,6 +154,22 @@ const Entities: FC = (props) =>{
     const MakeFullScreen = () =>{
         setFullScreen((prev) => !prev)
     }
+    const puzzleInfo = [{
+        name: "ABC generic company", 
+        adress: "Caracas 1050, Distrito Capital, Venezuella",
+        url: "./media/icons/firm.png"
+    }];
+    const CreateTable = () =>{
+        for (let index = 0; index < 40; index++) {
+            puzzleInfo.push({name: "World Company Sas", adress: "Caracas 1050, Distrito Capital, Venezuella", url: `${photoList[Math.floor(Math.random() * photoList.length)]?.url}`})
+        }
+        console.log(puzzleInfo);
+    }
+    CreateTable();
+    var [listLayout, setListLayout] = useState(false);
+    const MakeList = () =>{
+        setListLayout((prev) => !prev)
+    }
     return(
         <EntitiesComponent style=   {{  width:`${fullscreen ? '100%': 'auto'}`,
                                         height:`${fullscreen ? '100%': 'auto'}`,
@@ -170,7 +180,7 @@ const Entities: FC = (props) =>{
             <EntitiesUpperTopBar>
                 <EntitiesTitle>Entities</EntitiesTitle>
                 <Gear src="./media/icons/gear.png"/>
-                <EntitiesLayout>Mosaic</EntitiesLayout>
+                <EntitiesLayout onClick={MakeList}>Mosaic</EntitiesLayout>
             </EntitiesUpperTopBar>
             <EntitiesTopBar>
                 <AllButton>
@@ -196,8 +206,10 @@ const Entities: FC = (props) =>{
                     <SearchInputField type="text" placeholder="Search..."/>
                 </SearchInputDiv>
             </EntitiesTopBar>
-            <PuzzleSection>
-
+            <PuzzleSection style={{minHeight: `${fullscreen ? (puzzleInfo.length/6)*87 : (puzzleInfo.length/3)*87}px`}}>
+                {puzzleInfo.map((puzzle) =>(
+                    <SingleEntities name={puzzle.name} adress={puzzle.adress} url={puzzle.url} list={listLayout}/>
+                ))}
             </PuzzleSection>
         </EntitiesComponent>
     )
