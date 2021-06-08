@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const SinglePuzzleDiv = styled.div`
 padding: 10px;
 height: 55px;
-width:240px;
+width:245px;
 margin: 5px;
 border-radius: 5%;
 box-shadow:4px 4px 8px 1px #8e8e8e;

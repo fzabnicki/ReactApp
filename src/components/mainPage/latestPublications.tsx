@@ -16,9 +16,9 @@ const LatestPublicationsList = styled.div`
 background-color: white;
 width: 560px;
 height: 270px;
-border-radius: 5%;
 box-shadow:4px 4px 8px 1px #8e8e8e;
-border-radius:4px;
+border-top-right-radius:4px;
+border-bottom-right-radius:4px;
 margin-left: -1px;
 float: left;
 `
@@ -33,7 +33,8 @@ const PhotoBoxImg = styled.img`
 width: 272px;
 height: 270px;
 box-shadow:4px 4px 8px 1px #8e8e8e;
-border-radius:4px;
+border-top-left-radius:4px;
+border-bottom-left-radius:4px;
 float: left;
 `
 

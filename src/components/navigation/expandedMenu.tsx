@@ -135,21 +135,39 @@ export const ExpandedMenu: FC = () =>{
 
                 <MenuItem>
                 {'Client contract'.toLowerCase().includes(inputText.toLowerCase()) &&
-                    <Link to='/notimplemented' style={{textDecoration: 'none', color: Colors.black}} >
+                    <Link to={{ pathname: "/workspaces",
+                    state: {
+                        title: "Client Contract",
+                        thumbnail: "../media/icons/house2.png",
+                        background:"../media/signingsample.jpg"
+                    }
+                    }} style={{textDecoration: 'none', color: Colors.black}}>
                         <img src="../media/icons/house2.png" alt=""/> Client contract
                     </Link>}
                 </MenuItem>
 
                 <MenuItem>
                 {'Supplier contract'.toLowerCase().includes(inputText.toLowerCase()) &&
-                    <Link to='/notimplemented' style={{textDecoration: 'none', color: Colors.black}} >
+                    <Link to={{ pathname: "/workspaces",
+                    state: {
+                        title: "Supplier Contract",
+                        thumbnail: "../media/icons/publications.png",
+                        background:"../media/icons/suppliers.jpg"
+                    }
+                    }} style={{textDecoration: 'none', color: Colors.black}}>
                         <img src="../media/icons/publications.png" alt=""/> Supplier contract
                     </Link>}
                 </MenuItem>
 
                 <MenuItem>
                 {'Corporate'.toLowerCase().includes(inputText.toLowerCase()) &&
-                    <Link to='/notimplemented' style={{textDecoration: 'none', color: Colors.black}} >
+                    <Link to={{ pathname: "/workspaces",
+                    state: {
+                        title: "Corporate Contract",
+                        thumbnail: "../media/icons/entities.png",
+                        background:"../media/icons/corporate.jpg"
+                    }
+                    }} style={{textDecoration: 'none', color: Colors.black}}>
                         <img src="../media/icons/people.png" alt=""/> Corporate
                     </Link>}
                 </MenuItem>

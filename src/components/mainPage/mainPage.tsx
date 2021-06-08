@@ -22,6 +22,8 @@ import { getPosts } from '../../actions/postsActions';
 import LatestPublications from './latestPublications';
 import Slider from '../Slider/slider';
 import Articles from './articles';
+import WorkSpaces from '../workspaces/workspaces';
+import WorkSpaceInfo from '../workspaces/workspacesInfo';
 
 type GetUsers = ReturnType<typeof getUsers>
 type GetPhotos = ReturnType<typeof getPhotos>
@@ -72,6 +74,11 @@ const MainPage: FC = () => {
                         </Route>
                         <Route path="/notimplemented">
                             <NotImplemented/>
+                        </Route>
+                        <Route path="/workspaces">
+                            <WorkSpaces/>
+                            <WorkSpaceInfo/>
+                            <Articles/>
                         </Route>
                     </Switch>
                 </Content>

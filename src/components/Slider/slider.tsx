@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import Slider from 'react-slick';
 import styled from 'styled-components';
 
@@ -22,8 +23,8 @@ border-radius:5px;
 const WorkspacePhoto = styled.img`
 width: 250px;
 height: 70px;
-border-radius: 5%;
-border-radius:5px;
+border-top-left-radius: 5px;
+border-top-right-radius: 5px;
 `
 
 const Icon = styled.img`
@@ -74,6 +75,13 @@ export default class WorkspaceSlider extends Component {
       <div>
         <Slider {...settings}>
           <SliderBox>
+          <Link to={{ pathname: "/workspaces",
+                        state: {
+                          title: "Client Contract",
+                          thumbnail: "../media/icons/house2.png",
+                          background:Sampleimage
+                        }
+          }} style={{textDecoration: 'none', color: 'black'}}>
             <SliderElement >
               <WorkspacePhoto src={Sampleimage} />
               <IconBox>
@@ -89,34 +97,50 @@ export default class WorkspaceSlider extends Component {
                 Last update 2 days ago
               </DateText>
             </SliderElement>
+            </Link>
           </SliderBox>
 
           <SliderBox>
-            <SliderElement >
-              <WorkspacePhoto src={Sampleimage} />
-              <IconBox>
-                <Icon src="../media/icons/house2.png"/>
-              </IconBox>
-              <WorkspaceTitle>
-                Client Contract
-              </WorkspaceTitle>
-              <BottomText>
-                IMG Contract | IMG 150 users
-              </BottomText>
-              <DateText>
-                Last update 2 days ago
-              </DateText>
-            </SliderElement>
+            <Link to={{ pathname: "/workspaces",
+                        state: {
+                          title: "Corporate Contract",
+                          thumbnail: "../media/icons/entities.png",
+                          background: "../media/icons/skyscrapers.jpg"
+                        }
+          }} style={{textDecoration: 'none', color: 'black'}}>
+              <SliderElement >
+                <WorkspacePhoto src="../media/icons/skyscrapers.jpg" />
+                <IconBox>
+                  <Icon src="../media/icons/entities.png"/>
+                </IconBox>
+                <WorkspaceTitle>
+                  Corporate Contract
+                </WorkspaceTitle>
+                <BottomText>
+                  IMG Contract | IMG 150 users
+                </BottomText>
+                <DateText>
+                  Last update 2 days ago
+                </DateText>
+              </SliderElement>
+            </Link>
           </SliderBox>
 
           <SliderBox>
+          <Link to={{ pathname: "/workspaces",
+                        state: {
+                          title: "Ecosystem Contract",
+                          thumbnail: "../media/icons/ecosystem.png",
+                          background: "../media/icons/corporate.jpg"
+                        }
+          }} style={{textDecoration: 'none', color: 'black'}}>
             <SliderElement >
-              <WorkspacePhoto src={Sampleimage} />
+              <WorkspacePhoto src="../media/icons/corporate.jpg" />
               <IconBox>
-                <Icon src="../media/icons/house2.png"/>
+                <Icon src="../media/icons/ecosystem.png"/>
               </IconBox>
               <WorkspaceTitle>
-                Client Contract
+                Ecosystem Contract
               </WorkspaceTitle>
               <BottomText>
                 IMG Contract | IMG 150 users
@@ -125,6 +149,7 @@ export default class WorkspaceSlider extends Component {
                 Last update 2 days ago
               </DateText>
             </SliderElement>
+            </Link>
           </SliderBox>
 
           <SliderBox>

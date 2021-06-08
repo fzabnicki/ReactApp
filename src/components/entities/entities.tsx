@@ -142,13 +142,13 @@ margin-right: 5px;
 `;
 
 const PuzzleSection = styled.div`
-padding-left: 15px;
+padding-left: 20px;
 padding-bottom: 15px;
 `;
 
 
 
-const Entities: FC = (props) =>{
+const Entities: FC = () =>{
     const { photoList } = useSelector<IState, IPhotoReducer>(globalState => ({
         ...globalState.photos
     }));
