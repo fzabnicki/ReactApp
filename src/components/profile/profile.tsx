@@ -88,6 +88,7 @@ const EditButtonImg = styled.img`
 width: 15px;
 height: 15px;
 float:right;
+cursor: pointer;
 `;
 
 const MessageIcon = styled.img.attrs({
@@ -562,7 +563,7 @@ const Profile: FC = () =>{
                     <ProfilePicture src={photoList[1]?.url}/>
                     See profile
                 </ProfilePhotoDiv>
-                {editable === true?(
+                {editable === false?(
                     <div>
                         <ProfileName>
                             {name}<br/>
@@ -596,7 +597,7 @@ const Profile: FC = () =>{
             </ProfileSection>
             <Line/>
             <SkillsSection>
-                {editable === true?(
+                {editable === false?(
                     <div>
                             Expertise
                         <ExpertiseSection>
@@ -708,7 +709,7 @@ const Profile: FC = () =>{
             </SkillsSection>
             <Line/>
             <PanelSection>
-                {editable === true?(
+                {editable === false?(
                     <div>
                         <PanelTitleSection>Panel Informations</PanelTitleSection>
                 <HourlyFeeDiv>
@@ -792,7 +793,7 @@ const Profile: FC = () =>{
                     <DateRow>Date</DateRow>
                     <FirmRow>Firm</FirmRow>
                     <SmallLine/>
-                    {editable === true?(
+                    {editable === false?(
                         <div>
                             <SingleLine>
                             <NameLine1>{name1}</NameLine1>
@@ -857,7 +858,7 @@ const Profile: FC = () =>{
                     <ExpertiseRow>Expertise</ExpertiseRow>
                     <DateRow>Date</DateRow>
                     <SmallLine/>
-                    {editable === true?(
+                    {editable === false?(
                         <div>
                         <SingleLine>
                             <NameLine1>{intName1}</NameLine1>
@@ -915,7 +916,7 @@ const Profile: FC = () =>{
                     <AmmountRow>Total amount</AmmountRow>
                     <LawRow>Law firm</LawRow>
                     <SmallLine/>
-                    {editable === true?(
+                    {editable === false?(
                         <div>
                             <SingleLine>
                                 <Year1>{year1}</Year1>
